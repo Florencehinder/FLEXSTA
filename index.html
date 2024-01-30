@@ -17,6 +17,29 @@
     })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
   </script>
   <head>
+    <script>
+      (function (w, d, s, r, n) {
+        w.TrustpilotObject = n;
+        w[n] =
+          w[n] ||
+          function () {
+            (w[n].q = w[n].q || []).push(arguments);
+          };
+        a = d.createElement(s);
+        a.async = 1;
+        a.src = r;
+        a.type = "text/java" + s;
+        f = d.getElementsByTagName(s)[0];
+        f.parentNode.insertBefore(a, f);
+      })(
+        window,
+        document,
+        "script",
+        "https://invitejs.trustpilot.com/tp.min.js",
+        "tp"
+      );
+      tp("register", "bLCE4t7Km21sbiSR");
+    </script>
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -134,8 +157,68 @@
             />
           </div>
         </div>
+        <!-- Email Signup Section -->
+        <div class="text-center my-24">
+          <h2 class="text-4xl font-bold mb-12">STAY UPDATED.</h2>
+          <p class="mb-6 py-4">
+            Get notified when FLEXSTA launches new products and updates.
+          </p>
+          <form id="emailSignupForm">
+            <input
+              type="email"
+              name="email"
+              placeholder="your@email.com"
+              required
+              class="p-2 text-black"
+            />
+            <button
+              id="submit-button"
+              type="submit"
+              class="btn bg-black text-white font-normal w-[250px]"
+            >
+              SUBSCRIBE
+            </button>
+          </form>
+        </div>
       </div>
     </div>
+    <div id="toast-container" class="fixed top-5 right-5 z-50"></div>
+
+    <script>
+      document
+        .getElementById("emailSignupForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          var formData = new FormData(this);
+          console.log("Form submission started"); // Debugging line
+
+          fetch(
+            "https://script.google.com/macros/s/AKfycbzvur5MA2zBgq-8TbSXWR9UmkYMygUoVK_zeJ2EC6LD3hJHtUl7i2SK3pPmOOXrV792/exec",
+            {
+              method: "POST",
+              body: formData,
+            }
+          )
+            .then((response) => response.text())
+            .then((data) => {
+              console.log("Form submitted successfully"); // Debugging line
+              const submitButton = document.getElementById("submit-button");
+              if (submitButton) {
+                submitButton.innerText = "Subscribed!";
+                submitButton.classList.remove("bg-black");
+                submitButton.classList.add("bg-gray-800");
+                submitButton.classList.remove("text-white");
+                submitButton.classList.add("text-black");
+              } else {
+                console.log("Submit button not found"); // Debugging line
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        });
+    </script>
   </body>
   <!-- Footer Section -->
   <!-- Footer Section -->
