@@ -2,8 +2,8 @@ import React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { StaticImage } from "gatsby-plugin-image"
-import StripeBuyButton from "../components/StripeBuyButton"
 import flexGIF from "../images/FLEXSTA.gif"
+import StripeBuyButton from "../components/StripeBuyButton"
 
 function IndexPage() {
   const handleBuyButtonClick = () => {
@@ -70,9 +70,9 @@ function IndexPage() {
                   REVOLUTIONIZE YOUR WORK-ON-THE-GO!
                 </h2>
                 <p className="text-2xl mb-12">LIGHT-WEIGHT, PORTABLE, STURDY</p>
-                <stripe-buy-button
-                  buy-button-id="buy_btn_1Obs0tHpfGX5qyxLpULJt7sA"
-                  publishable-key="pk_live_51O17A9HpfGX5qyxLexbJ3hxAMgWUA6RyMTvqQk6QN0e6igh1iMkr4hYRQ7wW0RIiaoieEjNftCNKSODDwSuruaQy00jZQjg1H4"
+                <StripeBuyButton
+                  buyButtonId="buy_btn_1Obs0tHpfGX5qyxLpULJt7sA"
+                  publishableKey="pk_live_51O17A9HpfGX5qyxLexbJ3hxAMgWUA6RyMTvqQk6QN0e6igh1iMkr4hYRQ7wW0RIiaoieEjNftCNKSODDwSuruaQy00jZQjg1H4"
                 />
               </div>
             </section>

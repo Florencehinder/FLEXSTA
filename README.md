@@ -1,2 +1,0 @@
-# FLEXSTA
-Landing page

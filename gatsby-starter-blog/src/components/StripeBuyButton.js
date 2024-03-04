@@ -1,28 +1,28 @@
-// src/components/StripeBuyButton.js
-import React, { useEffect, useRef } from "react"
+import React, { useEffect } from "react"
 
 const StripeBuyButton = ({ buyButtonId, publishableKey }) => {
-  const buttonRef = useRef(null)
-
   useEffect(() => {
-    if (typeof window !== "undefined" && window.Stripe && buttonRef.current) {
-      const script = document.createElement("script")
-      script.src = "https://js.stripe.com/v3/buy-button.js"
-      script.async = true
+    // Create script element
+    const script = document.createElement("script")
+    script.src = "https://js.stripe.com/v3/buy-button.js"
+    script.async = true
 
-      script.onload = () => {
-        const stripeBuyButton = document.createElement("stripe-buy-button")
-        stripeBuyButton.setAttribute("buy-button-id", buyButtonId)
-        stripeBuyButton.setAttribute("publishable-key", publishableKey)
+    // Append script to the body
+    document.body.appendChild(script)
 
-        buttonRef.current.appendChild(stripeBuyButton)
-      }
-
-      document.head.appendChild(script)
+    // Clean-up function to remove script when component unmounts
+    return () => {
+      document.body.removeChild(script)
     }
-  }, [buyButtonId, publishableKey])
+  }, []) // Empty dependency array means this effect runs once on mount
 
-  return <div ref={buttonRef} />
+  return (
+    <div
+      className="stripe-buy-button"
+      data-buy-button-id={buyButtonId}
+      data-publishable-key={publishableKey}
+    ></div>
+  )
 }
 
 export default StripeBuyButton
