@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location = {}, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
 
@@ -18,7 +18,11 @@ const Layout = ({ location, title, children }) => {
       <header className="bg-white text-black py-4 mb-8">
         <div className="container mx-auto flex justify-between items-center">
           <div></div>{" "}
-          {/* Keep this empty div if you want to maintain the space on the left */}
+          <h1 className="main-heading">
+            <Link to="/blog">
+              <span itemProp="headline">FLEXSTA</span>
+            </Link>
+          </h1>
           <nav
             className="bg-white text-black py-4 mb-8"
             style={{
@@ -29,27 +33,29 @@ const Layout = ({ location, title, children }) => {
           >
             {" "}
             {/* Updated class here */}
-            <Link to="https://www.flexsta.com/" style={linkStyle}>
+            <Link to="/" className="underline px-4 text-xl">
               Home
             </Link>
-            <Link
-              to="https://buy.stripe.com/6oEcP9cJge1H4GQ6oy"
-              style={linkStyle}
+            <a
+              href="https://buy.stripe.com/6oEcP9cJge1H4GQ6oy"
+              className="underline px-4 text-xl"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Buy
-            </Link>
-            <Link to="mailto:flexsta.stands@gmail.com" style={linkStyle}>
+            </a>
+            <a
+              href="mailto:flexsta.stands@gmail.com"
+              className="underline px-4 text-xl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Contact
-            </Link>
-            <Link to="/" style={linkStyle}>
+            </a>
+            <Link to="/blog" className="underline px-4 text-xl">
               Blog
             </Link>
           </nav>
-          <h2>
-            <Link to="/">
-              <span itemProp="headline">FLEXSTA Blog</span>
-            </Link>
-          </h2>
         </div>
       </header>
 

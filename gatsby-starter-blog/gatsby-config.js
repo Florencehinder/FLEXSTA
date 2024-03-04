@@ -7,15 +7,16 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
 module.exports = {
   siteMetadata: {
     title: `Blog`,
     author: {
       name: `Florence Hinder.`,
-      summary: ` Built and designed the Flex 1.0 for myself after working remotely from various places aroudn the world. Creator of FLEXSTA.`,
+      summary: ` Built and designed the Flex 1.0 for myself after working remotely from various places around the world. Creator of FLEXSTA.`,
     },
     description: `A portable monitor stand to enable you to work ANYWHERE you want!`,
-    siteUrl: `https://flexsta.com/blog`,
+    siteUrl: `https://flexsta.com/`,
     social: {
       twitter: `florencehinder`,
     },

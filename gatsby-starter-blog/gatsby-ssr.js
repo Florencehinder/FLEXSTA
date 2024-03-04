@@ -10,3 +10,12 @@
 exports.onRenderBody = ({ setHtmlAttributes }) => {
   setHtmlAttributes({ lang: `en` })
 }
+
+// gatsby-ssr.js
+const React = require("react")
+
+exports.onRenderBody = ({ setHeadComponents }) => {
+  setHeadComponents([
+    <script key="stripe-js" async src="https://js.stripe.com/v3/"></script>,
+  ])
+}
