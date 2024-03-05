@@ -77,7 +77,7 @@ function IndexPage() {
               </div>
             </section>
 
-            {/* BANA section */}
+            {/* BANAna section */}
             <section>
               <div className="text-center my-24">
                 <div className="container mx-auto px-4">
